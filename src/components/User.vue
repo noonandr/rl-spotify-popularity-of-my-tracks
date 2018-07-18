@@ -12,3 +12,12 @@ export default {
 }
 
 </script>
+
+
+<style>
+
+.hello {
+  padding-bottom: 20px;
+}
+
+</style>

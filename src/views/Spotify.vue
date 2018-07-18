@@ -1,7 +1,7 @@
 <template>
   <div class="spotify">
-    <h1>Top Albums</h1>
-    <button v-on:click="authenticate()" v-if="!accessToken">Authenticate with Spotify</button>
+    <h1 class="page-title">Top Albums</h1>
+    <button v-on:click="authenticate()" v-if="!accessToken || errors">Authenticate with Spotify</button>
     <div class="loading" v-if="loading">Loading...</div>
     <User v-bind:user="user"/>
     <Tracks v-bind:tracks="tracks"/>
@@ -116,3 +116,162 @@ export default {
 }
 
 </script>
+
+<style>
+
+body {
+  background: #f5f5f5;
+  font-family: Helvetica, Arial, Sans-Serif;
+  color: #1c242b;
+}
+
+.page-title {
+  padding-top: 20px;
+  font-size: 32px;
+}
+
+html {
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0 auto;
+    font-size: 100%;
+    box-sizing: border-box;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+* {
+    box-sizing: inherit;
+
+    ::before,
+    ::after {
+        box-sizing: inherit;
+    }
+}
+
+
+// -- body
+
+body {
+    overflow: show; // bricks reset legacy  (@todo investigate dropping this)
+    position: relative; // bricks reset legacy  (@todo investigate dropping this)
+    margin: 0;
+    font: 16px/1 sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+// -- typography
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+figure,
+ol,
+dl,
+dt,
+dd,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: block;
+}
+
+ul,
+ol {
+    display: block;
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+}
+
+a {
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}
+
+input,
+textarea,
+keygen,
+select,
+button {
+    overflow: hidden;
+    font: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
+    -webkit-font-smoothing: inherit;
+}
+
+button  {
+    vertical-align: middle;
+    border: 0;
+    border-style: solid;
+    -webkit-appearance: button;
+}
+
+select {
+    overflow: auto;
+    border-radius: 0;
+}
+
+input {
+
+    &[type="button"],
+    &[type="reset"],
+    &[type="submit"] {
+        vertical-align: middle;
+        border: 0;
+        border-style: solid;
+        -webkit-appearance: button;
+    }
+
+    &[type="number"] {
+        -moz-appearance: textfield;
+
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+            margin: 0;
+            -webkit-appearance: none;
+        }
+    }
+}
+
+:focus {
+    outline: 0;
+}
+
+
+img {
+    overflow-x: hidden;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+</style>
+
