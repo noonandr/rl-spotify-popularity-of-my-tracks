@@ -1,0 +1,14 @@
+<template>
+  <div v-if="user" class="hello">Hello {{ user.id }} 👋</div>
+</template>
+
+<script>
+
+export default {
+  name: 'User',
+  props: {
+    user: Object
+  }
+}
+
+</script>
